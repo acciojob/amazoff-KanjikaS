@@ -16,22 +16,28 @@ public class OrderService {
     }
 
     public void addPartner(String partnerId){
+        System.out.println("Adding Partner");
         orderRepository.savePartner(partnerId);
+
     }
 
     public void createOrderPartnerPair(String orderId, String partnerId){
+        System.out.println("creating partner order pair");
         orderRepository.saveOrderPartnerMap(orderId, partnerId);
     }
 
     public Order getOrderById(String orderId){
+        System.out.println("Fetching order by ID " +orderId);
         return orderRepository.findOrderById(orderId);
     }
 
     public DeliveryPartner getPartnerById(String partnerId){
+        System.out.println("Get Partners by ID " + partnerId);
         return orderRepository.findPartnerById(partnerId);
     }
 
     public Integer getOrderCountByPartnerId(String partnerId){
+        System.out.println("Get Order Count by Partner ID");
         return orderRepository.findOrderCountByPartnerId(partnerId);
     }
 
@@ -56,6 +62,7 @@ public class OrderService {
     }
 
     public Integer getOrdersLeftAfterGivenTimeByPartnerId(String time, String partnerId){
+
         return orderRepository.findOrdersLeftAfterGivenTimeByPartnerId(time, partnerId);
     }
 

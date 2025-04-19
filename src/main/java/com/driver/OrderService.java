@@ -16,28 +16,24 @@ public class OrderService {
     }
 
     public void addPartner(String partnerId){
-        System.out.println("Adding Partner");
         orderRepository.savePartner(partnerId);
 
     }
 
     public void createOrderPartnerPair(String orderId, String partnerId){
-        System.out.println("creating partner order pair");
         orderRepository.saveOrderPartnerMap(orderId, partnerId);
     }
 
     public Order getOrderById(String orderId){
-        System.out.println("Fetching order by ID " +orderId);
         return orderRepository.findOrderById(orderId);
     }
 
     public DeliveryPartner getPartnerById(String partnerId){
-        System.out.println("Get Partners by ID " + partnerId);
+        partnerId = partnerId.trim(); // Trim any leading or trailing space
         return orderRepository.findPartnerById(partnerId);
     }
 
     public Integer getOrderCountByPartnerId(String partnerId){
-        System.out.println("Get Order Count by Partner ID");
         return orderRepository.findOrderCountByPartnerId(partnerId);
     }
 
